@@ -4,4 +4,4 @@ This repository contains samples of AWS use-cases and demonstrate options which 
 
 ## Use-cases
 
- 1. [How to deployed Laraval app on the AWS](laravel-app/laravel.md)
+ 1. [How to deployed Laravel app on the AWS](laravel-app/laravel.md)
