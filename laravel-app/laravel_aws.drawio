@@ -1,4 +1,4 @@
-<mxfile host="app.diagrams.net" modified="2023-10-08T20:01:42.665Z" agent="Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/117.0.0.0 Safari/537.36" etag="WxLwcSo-Y4IMH1cUcSVP" version="22.0.4" type="github">
+<mxfile host="app.diagrams.net" modified="2023-10-08T20:04:03.766Z" agent="Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/117.0.0.0 Safari/537.36" etag="ktOMmQAo8K9lQ1kgvyOb" version="22.0.4" type="github">
   <diagram name="Stránka-1" id="T09vkcB-pWuPJPHLJk-3">
     <mxGraphModel dx="1781" dy="642" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
       <root>
@@ -8,7 +8,7 @@
           <mxGeometry x="100" y="730" width="720" height="367" as="geometry" />
         </mxCell>
         <mxCell id="MxziLNYQqb15PoryjdHQ-2" value="AWS Cloud" style="sketch=0;outlineConnect=0;fontColor=#232F3E;gradientColor=none;strokeColor=#232F3E;fillColor=#ffffff;dashed=0;verticalLabelPosition=bottom;verticalAlign=top;align=center;html=1;fontSize=12;fontStyle=1;aspect=fixed;shape=mxgraph.aws4.resourceIcon;resIcon=mxgraph.aws4.aws_cloud;" vertex="1" parent="1">
-          <mxGeometry x="130" y="750" width="50" height="50" as="geometry" />
+          <mxGeometry x="120" y="740" width="50" height="50" as="geometry" />
         </mxCell>
         <mxCell id="MxziLNYQqb15PoryjdHQ-5" value="VPC" style="sketch=0;outlineConnect=0;gradientColor=none;html=1;whiteSpace=wrap;fontSize=12;fontStyle=1;shape=mxgraph.aws4.group;grIcon=mxgraph.aws4.group_vpc;strokeColor=#879196;fillColor=none;verticalAlign=top;align=left;spacingLeft=30;fontColor=#879196;dashed=0;" vertex="1" parent="1">
           <mxGeometry x="360" y="740" width="130" height="320" as="geometry" />
@@ -54,7 +54,7 @@
           </mxGeometry>
         </mxCell>
         <mxCell id="MxziLNYQqb15PoryjdHQ-34" value="Cloud Front&lt;br&gt;" style="outlineConnect=0;dashed=0;verticalLabelPosition=bottom;verticalAlign=top;align=center;html=1;shape=mxgraph.aws3.cloudfront;fillColor=#F58536;gradientColor=none;" vertex="1" parent="1">
-          <mxGeometry x="230" y="920" width="76.5" height="93" as="geometry" />
+          <mxGeometry x="200" y="920" width="76.5" height="93" as="geometry" />
         </mxCell>
         <mxCell id="MxziLNYQqb15PoryjdHQ-58" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" edge="1" parent="1" source="MxziLNYQqb15PoryjdHQ-47" target="MxziLNYQqb15PoryjdHQ-30">
           <mxGeometry relative="1" as="geometry" />
@@ -100,11 +100,14 @@
             <mxPoint x="370" y="920" as="targetPoint" />
           </mxGeometry>
         </mxCell>
-        <mxCell id="MxziLNYQqb15PoryjdHQ-64" value="Monitoring" style="outlineConnect=0;dashed=0;verticalLabelPosition=bottom;verticalAlign=top;align=center;html=1;shape=mxgraph.aws3.cloudwatch;fillColor=#759C3E;gradientColor=none;" vertex="1" parent="1">
-          <mxGeometry x="230" y="774" width="82.5" height="93" as="geometry" />
+        <mxCell id="MxziLNYQqb15PoryjdHQ-64" value="Cloud Watch&lt;br&gt;monitoring" style="outlineConnect=0;dashed=0;verticalLabelPosition=bottom;verticalAlign=top;align=center;html=1;shape=mxgraph.aws3.cloudwatch;fillColor=#759C3E;gradientColor=none;" vertex="1" parent="1">
+          <mxGeometry x="200" y="770.5" width="82.5" height="93" as="geometry" />
         </mxCell>
-        <mxCell id="MxziLNYQqb15PoryjdHQ-67" value="" style="sketch=0;outlineConnect=0;fontColor=#232F3E;gradientColor=none;fillColor=#232F3D;strokeColor=none;dashed=0;verticalLabelPosition=bottom;verticalAlign=top;align=center;html=1;fontSize=12;fontStyle=0;aspect=fixed;pointerEvents=1;shape=mxgraph.aws4.user;" vertex="1" parent="1">
-          <mxGeometry x="-20" y="880" width="78" height="78" as="geometry" />
+        <mxCell id="MxziLNYQqb15PoryjdHQ-67" value="User" style="sketch=0;outlineConnect=0;fontColor=#232F3E;gradientColor=none;fillColor=#232F3D;strokeColor=none;dashed=0;verticalLabelPosition=bottom;verticalAlign=top;align=center;html=1;fontSize=12;fontStyle=0;aspect=fixed;pointerEvents=1;shape=mxgraph.aws4.user;" vertex="1" parent="1">
+          <mxGeometry x="-20" y="940" width="78" height="78" as="geometry" />
+        </mxCell>
+        <mxCell id="MxziLNYQqb15PoryjdHQ-68" value="Developer" style="sketch=0;outlineConnect=0;fontColor=#232F3E;gradientColor=none;fillColor=#232F3D;strokeColor=none;dashed=0;verticalLabelPosition=bottom;verticalAlign=top;align=center;html=1;fontSize=12;fontStyle=0;aspect=fixed;pointerEvents=1;shape=mxgraph.aws4.user;" vertex="1" parent="1">
+          <mxGeometry x="-30" y="1166" width="78" height="78" as="geometry" />
         </mxCell>
       </root>
     </mxGraphModel>
