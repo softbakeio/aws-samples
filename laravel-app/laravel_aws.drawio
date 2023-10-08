@@ -1,14 +1,14 @@
-<mxfile host="app.diagrams.net" modified="2023-10-08T14:34:35.570Z" agent="Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/117.0.0.0 Safari/537.36" etag="t6dK6eFIWhw32eormb3K" version="22.0.4" type="github">
+<mxfile host="app.diagrams.net" modified="2023-10-08T14:45:35.407Z" agent="Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/117.0.0.0 Safari/537.36" etag="d9JQPwBnK3HRVX3Y7wUI" version="22.0.4" type="github">
   <diagram name="Stránka-1" id="T09vkcB-pWuPJPHLJk-3">
     <mxGraphModel dx="954" dy="642" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
       <root>
         <mxCell id="0" />
         <mxCell id="1" parent="0" />
         <mxCell id="MxziLNYQqb15PoryjdHQ-1" value="" style="rounded=0;whiteSpace=wrap;html=1;fillColor=default;fontStyle=1" vertex="1" parent="1">
-          <mxGeometry x="180" y="490" width="640" height="590" as="geometry" />
+          <mxGeometry x="80" y="507" width="740" height="590" as="geometry" />
         </mxCell>
         <mxCell id="MxziLNYQqb15PoryjdHQ-2" value="AWS Cloud" style="sketch=0;outlineConnect=0;fontColor=#232F3E;gradientColor=none;strokeColor=#232F3E;fillColor=#ffffff;dashed=0;verticalLabelPosition=bottom;verticalAlign=top;align=center;html=1;fontSize=12;fontStyle=1;aspect=fixed;shape=mxgraph.aws4.resourceIcon;resIcon=mxgraph.aws4.aws_cloud;" vertex="1" parent="1">
-          <mxGeometry x="200" y="507" width="60" height="60" as="geometry" />
+          <mxGeometry x="110" y="525" width="60" height="60" as="geometry" />
         </mxCell>
         <mxCell id="MxziLNYQqb15PoryjdHQ-5" value="VPC" style="sketch=0;outlineConnect=0;gradientColor=none;html=1;whiteSpace=wrap;fontSize=12;fontStyle=1;shape=mxgraph.aws4.group;grIcon=mxgraph.aws4.group_vpc;strokeColor=#879196;fillColor=none;verticalAlign=top;align=left;spacingLeft=30;fontColor=#879196;dashed=0;" vertex="1" parent="1">
           <mxGeometry x="270" y="640" width="520" height="400" as="geometry" />
@@ -38,17 +38,17 @@
             <mxPoint x="620" y="930" as="targetPoint" />
           </mxGeometry>
         </mxCell>
-        <mxCell id="MxziLNYQqb15PoryjdHQ-43" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" edge="1" parent="1">
+        <mxCell id="MxziLNYQqb15PoryjdHQ-43" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.346;exitY=0.5;exitDx=0;exitDy=0;exitPerimeter=0;" edge="1" parent="1" source="MxziLNYQqb15PoryjdHQ-5">
           <mxGeometry relative="1" as="geometry">
             <mxPoint x="501" y="770" as="sourcePoint" />
-            <mxPoint x="501" y="620" as="targetPoint" />
+            <mxPoint x="240" y="840" as="targetPoint" />
           </mxGeometry>
         </mxCell>
         <mxCell id="MxziLNYQqb15PoryjdHQ-7" value="App Runner &lt;br&gt;Laravel" style="sketch=0;points=[[0,0,0],[0.25,0,0],[0.5,0,0],[0.75,0,0],[1,0,0],[0,1,0],[0.25,1,0],[0.5,1,0],[0.75,1,0],[1,1,0],[0,0.25,0],[0,0.5,0],[0,0.75,0],[1,0.25,0],[1,0.5,0],[1,0.75,0]];outlineConnect=0;fontColor=#232F3E;fillColor=#ED7100;strokeColor=#ffffff;dashed=0;verticalLabelPosition=bottom;verticalAlign=top;align=center;html=1;fontSize=12;fontStyle=1;aspect=fixed;shape=mxgraph.aws4.resourceIcon;resIcon=mxgraph.aws4.app_runner;" vertex="1" parent="1">
           <mxGeometry x="461" y="796" width="78" height="78" as="geometry" />
         </mxCell>
         <mxCell id="MxziLNYQqb15PoryjdHQ-8" value="" style="rounded=0;whiteSpace=wrap;html=1;fontStyle=1" vertex="1" parent="1">
-          <mxGeometry x="180" y="1140" width="640" height="130" as="geometry" />
+          <mxGeometry x="80" y="1140" width="740" height="130" as="geometry" />
         </mxCell>
         <mxCell id="MxziLNYQqb15PoryjdHQ-17" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;fontStyle=1" edge="1" parent="1" target="MxziLNYQqb15PoryjdHQ-11">
           <mxGeometry relative="1" as="geometry">
@@ -90,7 +90,7 @@
           <mxGeometry x="635" y="930" width="80" height="100" as="geometry" />
         </mxCell>
         <mxCell id="MxziLNYQqb15PoryjdHQ-34" value="Cloud Front&lt;br&gt;" style="outlineConnect=0;dashed=0;verticalLabelPosition=bottom;verticalAlign=top;align=center;html=1;shape=mxgraph.aws3.cloudfront;fillColor=#F58536;gradientColor=none;" vertex="1" parent="1">
-          <mxGeometry x="462.5" y="507" width="76.5" height="93" as="geometry" />
+          <mxGeometry x="140" y="793.5" width="76.5" height="93" as="geometry" />
         </mxCell>
         <mxCell id="MxziLNYQqb15PoryjdHQ-40" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" edge="1" parent="1" source="MxziLNYQqb15PoryjdHQ-11">
           <mxGeometry relative="1" as="geometry">
