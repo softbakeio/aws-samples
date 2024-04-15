@@ -1,0 +1,36 @@
+name: EXIF_Filter_Job
+
+on:
+  push:
+    branches:
+      - s3_exif_filter
+
+jobs:
+  build-and-run:
+    runs-on: ubuntu-latest
+    env:
+      AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
+      AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+      AWS_DEFAULT_REGION: 'us-east-1' # You can change the region based on your requirement
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v3
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v3
+        with:
+          node-version: '16' # Specify your Node.js version
+
+      # - name: Install dependencies
+      #   run: npm install
+
+      # - name: Build TypeScript Application
+      #   run: npm run build
+
+      # - name: Run TypeScript Application
+      #   run: npm start
+
+      # Add more steps if you need to perform actions with AWS S3
+      # For example, uploading or downloading files to/from S3
+      # You will need to use AWS CLI commands or an action to interact with S3
