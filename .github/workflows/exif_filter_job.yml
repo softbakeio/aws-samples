@@ -1,4 +1,4 @@
-name: Run EXIF Filter Job
+name: EXIF_Filter_Job
 
 on:
   workflow_dispatch:
