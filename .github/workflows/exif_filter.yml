@@ -1,0 +1,46 @@
+name: EXIF_Filter_Job
+
+on:
+  workflow_dispatch:
+    inputs:
+      aws_access_key_id:
+        description: 'AWS Access Key ID'
+        required: true
+      aws_secret_access_key:
+        description: 'AWS Secret Access Key'
+        required: true
+      aws_region:
+        description: 'AWS Region'
+        required: true
+      s3_bucket_name:
+        description: 'S3 Bucket Name'
+        required: true
+
+jobs:
+  run-script:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Checkout Repository
+      uses: actions/checkout@v2
+
+    - name: Set up Python
+      uses: actions/setup-python@v2
+      with:
+        python-version: '3.8'  # Specify the Python version you need
+
+    - name: Install Dependencies
+      working-directory: exif_filter
+      run: |
+        python -m pip install --upgrade pip
+        pip install -r requirements.txt
+
+    - name: Run Script
+      working-directory: exif_filter
+      env:
+        AWS_ACCESS_KEY_ID: ${{ inputs.aws_access_key_id }}
+        AWS_SECRET_ACCESS_KEY: ${{ inputs.aws_secret_access_key }}
+        AWS_REGION: ${{ inputs.aws_region }}
+        S3_BUCKET_NAME: ${{ inputs.s3_bucket_name }}
+      run: |
+        python main.py
