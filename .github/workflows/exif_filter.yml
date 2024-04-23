@@ -1,36 +1,46 @@
-name: EXIF_Filter_Job
+name: Run EXIF Filter Job
 
 on:
-  push:
-    branches:
-      - s3_exif_filter
+  workflow_dispatch:
+    inputs:
+      aws_access_key_id:
+        description: 'AWS Access Key ID'
+        required: true
+      aws_secret_access_key:
+        description: 'AWS Secret Access Key'
+        required: true
+      aws_region:
+        description: 'AWS Region'
+        required: true
+      s3_bucket_name:
+        description: 'S3 Bucket Name'
+        required: true
 
 jobs:
-  build-and-run:
+  run-script:
     runs-on: ubuntu-latest
-    env:
-      AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
-      AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
-      AWS_DEFAULT_REGION: 'us-east-1' # You can change the region based on your requirement
 
     steps:
-      - name: Checkout code
-        uses: actions/checkout@v3
+    - name: Checkout Repository
+      uses: actions/checkout@v2
 
-      - name: Set up Node.js
-        uses: actions/setup-node@v3
-        with:
-          node-version: '16' # Specify your Node.js version
+    - name: Set up Python
+      uses: actions/setup-python@v2
+      with:
+        python-version: '3.8'  # Specify the Python version you need
 
-      # - name: Install dependencies
-      #   run: npm install
+    - name: Install Dependencies
+      working-directory: exif_filter
+      run: |
+        python -m pip install --upgrade pip
+        pip install -r requirements.txt
 
-      # - name: Build TypeScript Application
-      #   run: npm run build
-
-      # - name: Run TypeScript Application
-      #   run: npm start
-
-      # Add more steps if you need to perform actions with AWS S3
-      # For example, uploading or downloading files to/from S3
-      # You will need to use AWS CLI commands or an action to interact with S3
+    - name: Run Script
+      working-directory: exif_filter
+      env:
+        AWS_ACCESS_KEY_ID: ${{ inputs.aws_access_key_id }}
+        AWS_SECRET_ACCESS_KEY: ${{ inputs.aws_secret_access_key }}
+        AWS_REGION: ${{ inputs.aws_region }}
+        S3_BUCKET_NAME: ${{ inputs.s3_bucket_name }}
+      run: |
+        python main.py
