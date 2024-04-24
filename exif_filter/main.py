@@ -4,8 +4,6 @@ from botocore.exceptions import NoCredentialsError
 import requests
 from PIL import Image
 from io import BytesIO
-from exif import Image as ExifImage
-from retry import retry
 
 # Configure AWS SDK
 aws_access_key_id = os.getenv('AWS_ACCESS_KEY_ID')
@@ -19,17 +17,15 @@ s3 = boto3.client('s3',
                   aws_secret_access_key=aws_secret_access_key,
                   region_name=aws_region)
 
-# Function to get the EXIF data from an image URL
-def print_exif(url):
-    response = requests.get(url)
-    img = ExifImage(BytesIO(response.content))
-    if img.has_exif:
-        print(img.list_all())
-    else:
-        print("No EXIF data found.")
+# # Function to get the EXIF data from an image URL
+# def print_exif(url):
+#     response = requests.get(url)
+#     img = ExifImage(BytesIO(response.content))
+#     if img.has_exif:
+#         print(img.list_all())
+#     else:
+#         print("No EXIF data found.")
 
-# Function to remove EXIF data and upload to S3
-@retry(tries=3, delay=1)
 def remove_exif_and_upload(url, key):
     response = requests.get(url)
     original_image = Image.open(BytesIO(response.content))
