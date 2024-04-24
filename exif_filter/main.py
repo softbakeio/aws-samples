@@ -5,7 +5,6 @@ import requests
 from PIL import Image
 from io import BytesIO
 # from exif import Image as ExifImage
-from retry import retry
 
 # Configure AWS SDK
 aws_access_key_id = os.getenv('AWS_ACCESS_KEY_ID')
@@ -29,7 +28,6 @@ s3 = boto3.client('s3',
 #         print("No EXIF data found.")
 
 # Function to remove EXIF data and upload to S3
-@retry(tries=3, delay=1)
 def remove_exif_and_upload(url, key):
     response = requests.get(url)
     original_image = Image.open(BytesIO(response.content))
