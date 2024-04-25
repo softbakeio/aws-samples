@@ -6,7 +6,6 @@ from PIL import Image
 from io import BytesIO
 from requests.adapters import HTTPAdapter, Retry
 
-# from exif import Image as ExifImage
 
 # Configure AWS SDK
 aws_access_key_id = os.getenv('AWS_ACCESS_KEY_ID')
