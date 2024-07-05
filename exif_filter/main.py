@@ -15,10 +15,11 @@ aws_region = os.getenv('AWS_REGION')
 bucket_name = os.getenv('S3_BUCKET_NAME')
 
 # Create an S3 service object
-s3 = boto3.client('s3',
-                  aws_access_key_id=aws_access_key_id,
-                  aws_secret_access_key=aws_secret_access_key,
-                  region_name=aws_region)
+s3 = boto3.resource('s3',
+                    aws_access_key_id=aws_access_key_id,
+                    aws_secret_access_key=aws_secret_access_key,
+                    region_name=aws_region)
+bucket = s3.Bucket(bucket_name)
 
 def insecure_requests_retry_session(retries=3, backoff_factor=0.3, status_forcelist=(500, 502, 503, 504), session=None):
     session = session or requests.Session()
@@ -50,13 +51,13 @@ def remove_exif_and_upload(url, key):
         image_no_exif.save(buffer, format=original_image.format)
         buffer.seek(0)
 
-        s3.upload_fileobj(buffer, bucket_name, key)
+        s3.Bucket(bucket_name).upload_fileobj(buffer, key)
 
         print(f"Uploaded cleaned image with original file extension: {key}")
     except Exception as e:
         print(e)
 
-def process_images(data: Dict[str, str], max_workers: int = 8):
+def process_images(data: Dict[str, str], max_workers: int = 16):
     processed_urls = set()
     def process_single_image(url, key):
         if url not in processed_urls:
@@ -72,32 +73,16 @@ def process_images(data: Dict[str, str], max_workers: int = 8):
                 print(f"Exception occurred during image processing: {e}")
 
 def get_image_urls() -> Dict[str, str]:
-    marker = ""
     image_urls = dict()
 
-    while True:
-        params = {
-            'Bucket': bucket_name,
-            'Marker': marker,
-            # 'Prefix': 'images/1ee5611f-3ac3-6bea-83d5-25580abf052d'
-        }
-        try:
-            data = s3.list_objects(**params)
-            contents = data.get('Contents', [])
-            if not contents:  # Check if the contents list is empty
-                break  # Break the loop if no more items are available
+    try:
+        for obj in bucket.objects.all():
+            if obj.key.lower().endswith(('.jpg', '.jpeg', '.png', '.gif', '.webp')):
+                url = s3.meta.client.generate_presigned_url('get_object', Params={'Bucket': bucket_name, 'Key': obj.key})
+                image_urls[url] = obj.key
+    except NoCredentialsError as e:
+        print("Error in processing S3 objects:", str(e))
 
-            for item in contents:
-                if item['Key'].lower().endswith(('.jpg', '.jpeg', '.png', '.gif', '.webp')):
-                    url = s3.generate_presigned_url('get_object', Params={'Bucket': bucket_name, 'Key': item['Key']})
-                    # print("url is {} and key is {}".format(url, item['Key']))
-                    image_urls[url] = item['Key']
-
-            marker = contents[-1]['Key']  # Update the marker with the last key of the current page
-        except NoCredentialsError as e:
-            print("Error in processing S3 objects:", str(e))
-            break
-    
     return image_urls
 
 if __name__ == "__main__":
